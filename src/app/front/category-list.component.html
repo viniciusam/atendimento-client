@@ -1,0 +1,11 @@
+<h2>Formulário para Abertura de Chamado</h2>
+<hr>
+<!--<input type="text" class="form-control" (keyup)="searchCategory($event.target.value)" placeholder="Pesquisar categoria..." />-->
+&nbsp;
+<div class="list-group" *ngIf="categories?.length > 0">
+  <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let category of categories" (click)="categorySelected(category)" href="">
+    <h5 class="mb-1">{{ category.name }}</h5>
+    <small class="text-muted">{{ category.description }}</small>
+  </a>
+</div>
+<!--<p *ngIf="filtered?.length == 0">No categories found.</p>-->

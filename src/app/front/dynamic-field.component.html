@@ -1,0 +1,45 @@
+<div [ngSwitch]="field.type" [formGroup]="form">
+    
+    <div class="form-group" *ngSwitchCase="'input'" [ngClass]="{ 'has-danger': !isValid() }">
+        <label for="field.key">{{ field.label }}</label>
+        <input [formControlName]="field.key"
+            type="{{ field.inputType }}"
+            placeholder="{{ field.label }}"
+            name="{{ field.key }}"
+            class="form-control" />
+    </div>
+    
+    <div class="form-check" *ngSwitchCase="'checkbox'" [ngClass]="{ 'has-danger': !isValid() }">
+        <label class="form-check-label">
+            <input [formControlName]="field.key"
+                type="checkbox"
+                name="{{ field.key }}"
+                class="form-check-input" />
+            {{ field.label }}
+        </label>
+    </div>
+    
+    <div class="form-group" *ngSwitchCase="'select'" [ngClass]="{ 'has-danger': !isValid() }">
+        <label for="field.key">{{ field.label }}</label>
+        <select class="form-control">
+            <option *ngFor="let option of field.options" [value]="option.key">{{ option.value }}</option>
+        </select>
+    </div>
+
+    <fieldset class="form-group" *ngSwitchCase="'radio-group'" [ngClass]="{ 'has-danger': !isValid() }">
+        <legend>{{ field.label }}</legend>
+        <div class="form-check" *ngFor="let option of field.options">
+            <label class="form-check-label">
+                <input [formControlName]="field.key"
+                    type="radio"
+                    name="{{ field.key }}"
+                    value="{{ option.key }}"
+                    class="form-check-input" />
+                {{ option.value }}
+            </label>
+        </div>
+    </fieldset>
+
+    <div class="form-group" *ngSwitchDefault></div>
+
+</div>

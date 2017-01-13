@@ -1,0 +1,9 @@
+<div *ngIf="dynamicForm">
+  <h3>{{ dynamicForm.name }}</h3>
+  <hr>
+  <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+    <dynamic-field *ngFor="let field of dynamicForm.fields" [form]="form" [field]="field"></dynamic-field>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+<p *ngIf="!dynamicForm">Formulário não encontrado.</p>

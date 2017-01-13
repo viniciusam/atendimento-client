@@ -1,10 +1,10 @@
-import { ContactFormPage } from './app.po';
+import { AtendimentoClientPage } from './app.po';
 
-describe('contact-form App', function() {
-  let page: ContactFormPage;
+describe('atendimento-client App', function() {
+  let page: AtendimentoClientPage;
 
   beforeEach(() => {
-    page = new ContactFormPage();
+    page = new AtendimentoClientPage();
   });
 
   it('should display message saying app works', () => {
